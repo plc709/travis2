@@ -1,0 +1,7 @@
+services:
+  - docker
+script:
+  - docker image build -t plc709/trav_test .
+deploy:
+  provider: script
+  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && docker push plc709/trav_test
